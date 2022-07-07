@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<body>
+    <div style="text-align:center">
+        <h2>CalculatorSample</h2>
+        Please enter Value1 :   <input type="number"
+                                       id="txtValue1" min="1" max="1000"><br><br>
+        Please enter Value2 :   <input type="number"
+                                       id="txtValue2" min="1" max="1000"><br /><br>
+        Result from API: <input type="text"
+                                              id="txtResult" /><br /><br>
+        <input type="button" value="Add" id="btnAdd" onclick="requestVal()">
+        <input type="button" value="Subtract" id="btnMinus" onclick="requestVal()">
+        <input type="button" value="Multiply" id="btnMultiply" onclick="requestVal()">
+        <input type="button" value="Divide" id="btnDivide" onclick="requestVal()">
+    </div>
+
+
+
+<script>
+function requestVal() {
+    const resultText = document.getElementById('txtResult');
+    var value1 = document.getElementById("txtValue1").value 
+    var value2 = document.getElementById("txtValue2").value 
+    var arg = value1 + "/" + value2;
+    var control = event.target || event.srcElement;
+    var id = control.id
+
+    var urlString = "https://localhost:7253/Calc/";
+
+    switch (id) {
+    case 'btnAdd':
+    urlString = urlString + "CalcAdd/" + arg;
+    break;
+    case 'btnMinus':
+    urlString = urlString + "CalcSubtract/" + arg;
+    break;
+    case 'btnMultiply':
+    urlString = urlString + "CalcMultiply/" + arg;
+    break;
+    case 'btnDivide':
+    urlString = urlString + "CalcDivide/" + arg;
+    break;
+    default:
+    urlString = urlString + "default...";
+    }
+    //console.log(arg)
+    console.log(urlString)
+
+
+    fetch(urlString)
+        .then(response => response.text())
+        .then(data => document.getElementById("txtResult").value = data)
+    console.log(data);
+
+}
+</script>
+</body>
