@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "iCClz41nUsCwx1puueSwYvRYLHuKWVEILajl7s60H4w=",
+  "Source": "WebService",
+  "BasePath": "_content/WebService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebService\\wwwroot",
+      "Source": "WebService",
+      "ContentRoot": "F:\\Visual Studio\\Projects\\ELEducationSample\\ELEducationSample\\WebService\\wwwroot\\",
+      "BasePath": "_content/WebService",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
